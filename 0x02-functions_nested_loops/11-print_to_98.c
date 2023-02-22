@@ -8,9 +8,9 @@
 void print_to_98(int n)
 {
 	int diff;
+	int i;
 
 	diff = n - 98;
-	absdiff = diff * -1;
 	if (diff > 0)
 	{
 		for (i = n; i >= 98; i--)
