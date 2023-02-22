@@ -8,14 +8,17 @@
 int main(void)
 {
 	int i;
+	int sum;
 
-	for (i = 0; i < 1024; i++)
+	while (i < 1024)
 	{
 		if ((i % 3 == 0) || (i % 5 == 0))
 		{
-			i += i;
-			printf("%d\n", i);
+			sum = sum + i;
+
 		}
+	i++;
 	}
+	printf("%d\n", sum);
 	return (0);
 }
