@@ -30,13 +30,11 @@ void print_times_table(int n)
 			}
 			else if (mult >= 100)
 			{
-				int num3 = mult;
-				int last = mult % 10;
 				int num2 = mult / 10;
 				int middle = num2 % 10;
 				int first = num2 / 10;
 
-				-putchar(first + '0');
+				_putchar(first + '0');
 				_putchar(middle + '0');
 				_putchar(mult % 10 + '0');
 				_putchar(',');
