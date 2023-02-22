@@ -17,7 +17,7 @@ void print_times_table(int n)
 				product = i * j;
 				if (product < 0)
 				{
-					putchar('-');
+					_putchar('-');
 					product = -product;
 				}
 				divisor = 1;
@@ -27,14 +27,14 @@ void print_times_table(int n)
 				}
 				while (divisor > 0)
 				{
-					putchar('0' + (product / divisor));
+					_putchar('0' + (product / divisor));
 					product %= divisor;
 					divisor /= 10;
 				}
-				putchar(',');
-				putchar(' ');
+				_putchar(',');
+				_putchar(' ');
 			}
-			putchar('\n');
+			_putchar('\n');
 		}
 	}
 }
