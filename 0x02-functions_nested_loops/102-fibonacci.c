@@ -8,6 +8,7 @@
 int main(void)
 {
 	int i;
+	int j;
 
 	while (i <= 50)
 	{
@@ -18,4 +19,5 @@ int main(void)
 		}
 		i++;
 	}
+	return (0);
 }
