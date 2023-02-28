@@ -7,16 +7,29 @@
  */
 int main(void)
 {
-	int sum;
-	char c;
+	int ascii = 2772, i = 0, j, random;
+	char password[100];
+	time_t t;
 
-	srand(time(NULL));
-	while (sum <= 2645)
+	srand((int) time(&t));
+	while (ascii > 126)
 	{
-		c = rand() % 128;
-		sum += c;
-		putchar(c);
+		random = rand() % 126;
+		password[i] = random;
+		ascii -= random;
+		i++;
 	}
-	putchar(2772 - sum);
+	if (ascii > 0)
+		password[i] = ascii;
+	else
+	{
+		i--;
+	}
+
+
+	for (j = 0; j <= i; j++)
+	{
+		printf("%c", password[j]);
+	}
 	return (0);
 }
