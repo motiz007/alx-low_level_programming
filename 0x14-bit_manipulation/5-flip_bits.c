@@ -11,19 +11,15 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int count = 0;
 	int base = 1;
-	int index = 0;
 	int bcount = 0;
 
 	while (bcount < 32)
 	{
-		base = base << index;
-		if ((m & base) > 0 && (n & base) == 0)
+		if ((m & base) != (n & base))
 			count++;
-		if ((m & base) == 0 && (n & base) > 1)
-			count++;
-		base = 1;
+		n = n >> 1;
+		m = m >> 1;
 		bcount++;
-		index++;
 	}
 	return (count);
 }
