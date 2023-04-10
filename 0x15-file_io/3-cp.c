@@ -4,8 +4,8 @@ char *buffer(char *file);
 void close_file(int fl);
 
 /**
- * buffer - Allocates 1024 bytes for a buffer.
- * @file: The name of the file buffer is storing chars for.
+ * buffer - Allocates 1024 bytes.
+ * @file: name of the file buffer is storing chars for.
  * Return: A pointer to the newly-allocated buffer.
  */
 char *buffer(char *file)
@@ -26,7 +26,7 @@ char *buffer(char *file)
 
 /**
  * close_file - Closes file descriptors.
- * @fd: The file descriptor to be closed.
+ * @fl: file descriptor to closed.
  */
 void close_file(int fl)
 {
