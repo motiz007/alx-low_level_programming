@@ -41,7 +41,7 @@ hash_node_t *create_node(const char *key, const char *value)
 	{
 		return (NULL);
 	}
-	
+
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 	new_node->next = NULL;
