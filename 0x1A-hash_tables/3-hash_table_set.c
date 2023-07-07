@@ -12,7 +12,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node;
 	unsigned long int index;
 
-	if (key == NULL)
+	if (key == NULL || ht == NULL)
 		return (0);
 
 	new_node = create_node(key, value);
@@ -41,10 +41,9 @@ hash_node_t *create_node(const char *key, const char *value)
 	{
 		return (NULL);
 	}
-	new_node->key = malloc(strlen(key) + 1);
-	new_node->value = malloc(strlen(value) + 1);
-	strcpy(new_node->key, key);
-	strcpy(new_node->value, value);
+	
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
 	new_node->next = NULL;
 
 	return (new_node);
@@ -56,11 +55,11 @@ hash_node_t *create_node(const char *key, const char *value)
  * @new_node: the new node to insert
  * Return: void
 */
-void collision_handler(hash_node_t *head, hash_node_t *new_node)
+void collision_handler(hash_node_t **head, hash_node_t *new_node)
 {
 	hash_node_t *temp;
 
-	temp = head;
-	head = new_node;
+	temp = *head;
+	*head = new_node;
 	new_node->next = temp;
 }
