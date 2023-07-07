@@ -65,10 +65,14 @@ void collision_handler(hash_node_t **head, hash_node_t *new_node)
 	temp = *head;
 	while (temp)
 	{
-		if(strcmp(new_node->key, temp->key) == 0)
+		if (strcmp(new_node->key, temp->key) == 0)
 		{
 			free(temp->value);
 			temp->value = strdup(new_node->value);
+			free(new_node->key);
+			free(new_node->value);
+			free(new_node);
+			return;
 		}
 		temp = temp->next;
 	}
