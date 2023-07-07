@@ -18,9 +18,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node = create_node(key, value);
 	if (new_node == NULL)
 		return (0);
-	index = key_index((const unsigned char *)new_node->key, ht->size);
+	index = key_index((const unsigned char *)key, ht->size);
 	if (ht->array[index] == NULL)
+	{
 		ht->array[index] = new_node;
+		return (1);
+	}
 	else
 		collision_handler(&(ht->array[index]), new_node);
 
@@ -60,6 +63,15 @@ void collision_handler(hash_node_t **head, hash_node_t *new_node)
 	hash_node_t *temp;
 
 	temp = *head;
+	while (temp)
+	{
+		if(strcmp(new_node->key, temp->key) == 0)
+		{
+			free(temp->value);
+			temp->value = strdup(new_node->value);
+		}
+		temp = temp->next;
+	}
+	new_node->next = *head;
 	*head = new_node;
-	new_node->next = temp;
 }
