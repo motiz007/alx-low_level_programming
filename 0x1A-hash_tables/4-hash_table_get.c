@@ -8,7 +8,6 @@
 */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	char *info;
 	unsigned long int index;
 	hash_node_t *temp;
 
@@ -20,8 +19,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	{
 		if (strcmp(key, temp->key) == 0)
 		{
-			info = temp->value;
-			return (info);
+			return (temp->value);
 		}
 		temp = temp->next;
 	}
