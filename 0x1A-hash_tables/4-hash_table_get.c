@@ -20,7 +20,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	{
 		if (strcmp(key, temp->key) == 0)
 		{
-			info = strdup(temp->value);
+			info = temp->value;
 			return (info);
 		}
 		temp = temp->next;
